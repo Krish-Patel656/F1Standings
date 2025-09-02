@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F1 Results - {{ year }} Round {{ round }}</title>
+</head>
+<body>
+    <h1>Results for {{ year }} Round {{ round }}</h1>
+
+    {% if error_msg %}
+        <p style="color: red;">Error: {{ error_msg }}</p>
+    {% else %}
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Driver</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in positions %}
+                    <tr>
+                        <td>{{ p.position }}</td>
+                        <td>{{ p.driver }}</td>
+                        <td>{{ p.team }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <p><a href="/">Back to selection</a></p>
+</body>
+</html>
