@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F1 Results</title>
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <h1>Select Year and Race</h1>
+    <form action="/results" method="post">
+        <label for="year">Year:</label>
+        <select id="year" name="year" onchange="updateRaces()" required>
+            <option disabled selected value="">Select year</option>
+            {% for y in years %}
+                <option value="{{ y }}">{{ y }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="round">Race:</label>
+        <select id="round" name="round" required>
+            <option value="">Select a year first</option>
+        </select>
+
+        <br><br>
+        <button type="submit">Show Results</button>
+    </form>
+</body>
+</html>
